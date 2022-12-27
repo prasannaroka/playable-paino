@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* padding: 0 10px; */
+    background: white;
+}
+.wrapper{
+    width: 780px;
+    border-radius: 20px;
+    padding: 35px 40px;
+    background: black;
+}
+.wrapper header{
+    color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header h2{
+    font-size: 1.6rem;
+}
+header .column{
+display: flex;
+align-items: center;
+}
+header .column span{
+    font-weight: 500;
+    margin-right: 15px;
+    font-size: 1.19rem;
+}
+.volume-slider input{
+    outline: none;
+    accent-color: white;
+}
+
+.keys-checkbox input{
+    width: 60px;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    appearance: none;
+    border-radius: 30px;
+    background: rgb(60, 48, 48);
+}
+.keys-checkbox input::before{
+    content: "";
+    height: 20px;
+    width: 20px;
+    top: 50%;
+    left: 5px;
+    border-radius: inherit;
+    position: absolute;
+    background: rgb(99, 88, 88);
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+.keys-checkbox input:checked::before{
+    left: 35px;
+    background: white;
+}
+.paino-keys{
+    display: flex;
+    margin-top: 40px;
+}
+.paino-keys .key{
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    color: rgb(99, 88, 88);
+    position: relative;
+    text-transform: uppercase;
+}
+.paino-keys .black{
+    width: 44px;
+    height: 140px;
+    z-index: 2;
+    margin: 0 -22px 0 -22px;
+    border-radius: 0 0 5px 5px;
+    background: linear-gradient(#333, #000);
+}
+.paino-keys .black.active{
+    background: linear-gradient(to bottom, #000, #434343);
+    box-shadow: inset -5px 5px 10px rgba(255,255,255,0.1);
+}
+.paino-keys .white{
+    width: 70px;
+    height: 230px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background: linear-gradient(#fff 96%, #eee 4%);
+}
+.paino-keys .white.active{
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+    box-shadow: inset -5px 5px 20px rgba(0,0,0,0.2);
+}
+.paino-keys span{
+position: absolute;
+bottom: 20px;
+width: 100%;
+font-size: 1.13rem;
+text-align: center;
+}
+.paino-keys .key.hide span{
+    display: none;
+}
+@media screen and (max-width: 815px){
+  .wrapper{
+      padding: 25px;
+  }
+  header{
+      flex-direction: column;
+  }
+  header :where(h2, .column){
+      margin-bottom: 13px;
+  }
+.volume-slider input{
+    max-width: 100px;
+}
+.paino-keys{
+    margin-top: 20px;
+}
+.paino-keys .black{
+    height: 100px;
+    width: 40px;
+    margin: 0 -20px 0 -20px;
+}
+.paino-keys .white{
+    height: 180px;
+    width: 60px;
+}
+}
+@media screen and (max-width: 615px){
+    .paino-keys .key:nth-child(13),    
+    .paino-keys .key:nth-child(14),    
+    .paino-keys .key:nth-child(15),    
+    .paino-keys .key:nth-child(16),    
+    .paino-keys .key:nth-child(17) {
+        display: none;
+    }    
+    .paino-keys .white {
+        width: 50px;
+    }
+}
